@@ -3,5 +3,5 @@ foo: {{this.queryParams.foo}}<br>
 
 <br>
 
-<button type='button' {{on 'click' (fn this.inc 'demo')}}>demo++</button>
-<button type='button' {{on 'click' (fn this.inc 'foo')}}>foo++</button>
+<a href={{this.nextForQp 'demo'}} {{on 'click' (fn this.inc 'demo')}}>demo++</a>
+<a href={{this.nextForQp 'foo'}} {{on 'click' (fn this.inc 'foo')}}>foo++</a>
