@@ -1,0 +1,7 @@
+demo: {{this.queryParams.demo}}<br>
+foo: {{this.queryParams.foo}}<br>
+
+<br>
+
+<button type='button' {{on 'click' (fn this.inc 'demo')}}>demo++</button>
+<button type='button' {{on 'click' (fn this.inc 'foo')}}>foo++</button>
