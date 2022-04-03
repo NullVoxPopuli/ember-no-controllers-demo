@@ -10,7 +10,9 @@ export default class QPViewerComponent extends Component {
 
   nextQps = (qp) => {
     let existing = this.queryParams?.[qp] || 0;
-    return { ...this.queryParams, [qp]: existing };
+    let nextQp = parseInt(existing, 10) + 1;
+
+    return { ...this.queryParams, [qp]: nextQp };
   };
 
   nextForQp = (qp) => {
@@ -19,10 +21,12 @@ export default class QPViewerComponent extends Component {
 
   inc = (qp, event) => {
     event?.preventDefault();
-    // Does not work without adding qps to controller
-    // this.router.transitionTo({
-    //   queryParams: this.nextQps(qp),
-    // });
-    this.router.transitionTo(this.nextForQp(qp));
+
+    this.router.transitionTo({
+      queryParams: this.nextQps(qp),
+    });
+
+    // if you want to use just URLs / hrefs
+    // this.router.transitionTo(this.nextForQp(qp));
   };
 }
